@@ -3,6 +3,8 @@ import 'nasa_mars_rover_api_model.dart';
 import 'constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:lottie/lottie.dart';
 
 class ResultView extends StatelessWidget {
   const ResultView({Key? key, required this.dataModel}) : super(key: key);
@@ -13,9 +15,17 @@ class ResultView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        FadeInImage.assetNetwork(
-          placeholder: 'images/rocket_image.gif',
-          image: dataModel.photos![0]!.imgSrc!,
+        CachedNetworkImage(
+          imageUrl: dataModel.photos![0]!.imgSrc!,
+          placeholder: (context, url) => Padding(
+            padding: const EdgeInsets.only(top: 100.0),
+            child: Lottie.asset(
+              'images/loading.json',
+              width: 200.0,
+              height: 200.0,
+            ),
+          ),
+          errorWidget: (context, url, error) => Icon(Icons.error),
         ),
         Padding(
           padding: const EdgeInsets.all(10.0),
@@ -181,10 +191,13 @@ class ResultView extends StatelessWidget {
                   style: kRoverDetailsTextStyle,
                 ),
                 Center(
-                  child: Text(
-                    dataModel.photos![0]!.camera!.fullName.toString(),
-                    textAlign: TextAlign.center,
-                    style: kRoverCameraFullNameTextStyle,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Text(
+                      dataModel.photos![0]!.camera!.fullName.toString(),
+                      textAlign: TextAlign.center,
+                      style: kRoverCameraFullNameTextStyle,
+                    ),
                   ),
                 ),
                 Center(

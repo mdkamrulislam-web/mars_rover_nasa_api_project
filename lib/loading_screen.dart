@@ -66,7 +66,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'CURIOSITY',
+            'Mars Rover Gallery',
+            style: TextStyle(wordSpacing: 3.0),
           ),
         ),
       ),

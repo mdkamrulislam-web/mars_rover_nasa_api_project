@@ -29,7 +29,7 @@ const kRoverStatusTextStyle = TextStyle(
 
 const kRoverCameraFullNameTextStyle = TextStyle(
   // fontFamily: 'Montserrat',
-  fontSize: 20.0,
+  fontSize: 16.0,
   height: 1.25,
   color: Colors.green,
   fontWeight: FontWeight.w300,
