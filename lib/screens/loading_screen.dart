@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:mars_rover_nasa_api_project/screens/home.dart';
+
 import 'result_view.dart';
 import 'package:flutter/material.dart';
-import 'package:mars_rover_nasa_api_project/API_KEY.dart';
-import 'package:mars_rover_nasa_api_project/constants.dart';
+import 'package:mars_rover_nasa_api_project/utilities/API_KEY.dart';
+import 'package:mars_rover_nasa_api_project/utilities/constants.dart';
 import 'package:http/http.dart' as http;
-import 'package:mars_rover_nasa_api_project/nasa_mars_rover_api_model.dart';
+import 'package:mars_rover_nasa_api_project/model/nasa_mars_rover_api_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoadingScreen extends StatefulWidget {
@@ -24,31 +26,6 @@ class _LoadingScreenState extends State<LoadingScreen> {
         NASAMarsRoverPhotosAPIModel.fromJson(jsonDecode(response.body));
 
     return data;
-
-    // if (response.statusCode == 200) {
-    //   print(response.statusCode);
-    //
-    //   NASAMarsRoverPhotosAPIModel dataModel =
-    //       NASAMarsRoverPhotosAPIModel.fromJson(jsonDecode(response.body));
-    //
-    //   var imageSource = dataModel.photos![0]!.imgSrc;
-    //   //print(imageSource);
-    //   var dateOnEarth = dataModel.photos![0]!.earthDate;
-    //   var landingDate = dataModel.photos![0]!.rover!.landingDate;
-    //   var roverLandingDate = dataModel.photos![0]!.rover!.landingDate;
-    //   var roverLaunchingDate = dataModel.photos![0]!.rover!.launchDate;
-    //   var roverID = dataModel.photos![0]!.rover!.id;
-    //   var roverStatus = dataModel.photos![0]!.rover!.status;
-    //   var cameraID = dataModel.photos![0]!.camera!.id;
-    //   var cameraCode = dataModel.photos![0]!.camera!.name;
-    //   var cameraFullName = dataModel.photos![0]!.camera!.fullName;
-    //   var photoID = dataModel.photos![0]!.id;
-    //
-    //   nasaData = dataModel;
-    //
-    // } else {
-    //   print(response.statusCode);
-    // }
   }
 
   @override
@@ -77,7 +54,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
             AsyncSnapshot<NASAMarsRoverPhotosAPIModel> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             NASAMarsRoverPhotosAPIModel dataModel = snapshot.data!;
-            return ResultView(dataModel: dataModel);
+            return AppHomeScreen(dataModel: dataModel);
+            // ResultView(dataModel: dataModel);
           } else {
             return Center(
               child: SpinKitCubeGrid(

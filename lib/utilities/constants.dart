@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 const kRoverNameTextStyle = TextStyle(
-  fontFamily: 'Montserrat',
-  fontSize: 30.0,
+  //fontFamily: 'Montserrat',
+  fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
 
@@ -53,5 +53,11 @@ const kRoverLaunchLandTextStyle = TextStyle(
 const kRoverLaunchLandDateTextStyle = TextStyle(
   fontSize: 16.0,
   color: Colors.grey,
+  fontWeight: FontWeight.bold,
+);
+
+const kHomeButtonTextStyle = TextStyle(
+  fontSize: 30.0,
+  color: Colors.white,
   fontWeight: FontWeight.bold,
 );
