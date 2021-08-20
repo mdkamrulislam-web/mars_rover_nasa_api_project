@@ -11,7 +11,7 @@ class GalleryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Mars Rover - CURIOSITY'),
+        title: Text('Mars Rover Gallery'),
       ),
       body: ListView.builder(
         itemCount: dataModel.photos!.length,
@@ -19,7 +19,7 @@ class GalleryScreen extends StatelessWidget {
           return Column(
             children: [
               Text(
-                'CAMERA NAME',
+                'Camera Name',
                 style: kRoverDetailsTextStyle,
               ),
               Center(

@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Mars Rover - CURIOSITY',
+      title: 'Mars Rover Gallery',
       theme: ThemeData.dark(),
       home: LoadingScreen(),
     );

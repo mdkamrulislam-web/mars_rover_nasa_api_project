@@ -7,7 +7,7 @@ const kRoverNameTextStyle = TextStyle(
 );
 
 const kRoverVoyageDateTextStyle = TextStyle(
-  fontSize: 16.0,
+  fontSize: 18.0,
 );
 
 const kRoverDetailsTextStyle = TextStyle(
