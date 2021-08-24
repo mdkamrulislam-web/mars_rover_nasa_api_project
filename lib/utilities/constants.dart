@@ -61,3 +61,25 @@ const kHomeButtonTextStyle = TextStyle(
   color: Colors.white,
   fontWeight: FontWeight.bold,
 );
+
+const kEarthDateTextStyle = TextStyle(
+  fontSize: 17.0,
+  color: Colors.grey,
+  fontWeight: FontWeight.w400,
+  wordSpacing: 2,
+  letterSpacing: 1.5,
+);
+
+const kPhotoCardsDecoration = BoxDecoration(
+  color: Colors.black54,
+  borderRadius: BorderRadius.all(
+    Radius.circular(20.0),
+  ),
+);
+
+const kHomeContainerDecoration = BoxDecoration(
+  color: Colors.black54,
+  borderRadius: BorderRadius.all(
+    Radius.circular(10.0),
+  ),
+);

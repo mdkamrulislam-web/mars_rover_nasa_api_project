@@ -1,10 +1,7 @@
 import 'dart:convert';
 import 'package:mars_rover_nasa_api_project/screens/home.dart';
-
-import 'result_view.dart';
 import 'package:flutter/material.dart';
 import 'package:mars_rover_nasa_api_project/utilities/API_KEY.dart';
-import 'package:mars_rover_nasa_api_project/utilities/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:mars_rover_nasa_api_project/model/nasa_mars_rover_api_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

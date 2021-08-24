@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mars_rover_nasa_api_project/screens/result_view.dart';
 import '../model/nasa_mars_rover_api_model.dart';
 import '../utilities/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mars_rover_nasa_api_project/screens/cameralist.dart';
 
 class AppHomeScreen extends StatelessWidget {
   const AppHomeScreen({Key? key, required this.dataModel}) : super(key: key);
 
   final NASAMarsRoverPhotosAPIModel dataModel;
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -28,17 +27,12 @@ class AppHomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 25.0),
                   child: Lottie.asset(
                     'images/loading.json',
-                    width: 200.0,
-                    height: 200.0,
+                    width: 100.0,
+                    height: 100.0,
                   ),
                 ),
                 errorWidget: (context, url, error) => Icon(Icons.error),
               ),
-              // Image(
-              //   image: AssetImage(
-              //     'images/rover.jpg',
-              //   ),
-              // ),
             ),
           ),
           Padding(
@@ -60,12 +54,7 @@ class AppHomeScreen extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0, right: 20),
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10.0),
-                          ),
-                        ),
+                        decoration: kHomeContainerDecoration,
                         child: Column(
                           children: [
                             Center(
@@ -96,12 +85,7 @@ class AppHomeScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
-                                ),
-                              ),
+                              decoration: kHomeContainerDecoration,
                               child: Column(
                                 children: [
                                   Padding(
@@ -134,12 +118,7 @@ class AppHomeScreen extends StatelessWidget {
                           SizedBox(width: 20.0),
                           Expanded(
                             child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black54,
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10.0),
-                                ),
-                              ),
+                              decoration: kHomeContainerDecoration,
                               child: Column(
                                 children: [
                                   Padding(
@@ -175,22 +154,20 @@ class AppHomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    // Container(
-                    //   width: 200,
-                    //   decoration: BoxDecoration(
-                    //     color: Colors.black54,
-                    //     borderRadius: BorderRadius.all(
-                    //       Radius.circular(10.0),
-                    //     ),
-                    //   ),
-                    //   child:
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20.0),
                       child: ElevatedButton(
                         onPressed: () async {
                           await Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return ResultView(dataModel: dataModel);
+                            return Scaffold(
+                                appBar: AppBar(
+                                  centerTitle: true,
+                                  title: Text(
+                                    'Mars Rover Cameras',
+                                  ),
+                                ),
+                                body: CameraList(dataModel: dataModel));
                           }));
                         },
                         style: ElevatedButton.styleFrom(
