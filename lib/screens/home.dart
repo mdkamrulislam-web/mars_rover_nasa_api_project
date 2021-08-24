@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:mars_rover_nasa_api_project/screens/result_view.dart';
 import '../model/nasa_mars_rover_api_model.dart';
 import '../utilities/constants.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mars_rover_nasa_api_project/cameralist.dart';
 
 class AppHomeScreen extends StatelessWidget {
   const AppHomeScreen({Key? key, required this.dataModel}) : super(key: key);
 
   final NASAMarsRoverPhotosAPIModel dataModel;
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
@@ -28,8 +27,8 @@ class AppHomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 25.0),
                   child: Lottie.asset(
                     'images/loading.json',
-                    width: 200.0,
-                    height: 200.0,
+                    width: 100.0,
+                    height: 100.0,
                   ),
                 ),
                 errorWidget: (context, url, error) => Icon(Icons.error),
@@ -190,7 +189,14 @@ class AppHomeScreen extends StatelessWidget {
                         onPressed: () async {
                           await Navigator.push(context,
                               MaterialPageRoute(builder: (context) {
-                            return ResultView(dataModel: dataModel);
+                            return Scaffold(
+                                appBar: AppBar(
+                                  centerTitle: true,
+                                  title: Text(
+                                    'Mars Rover Cameras',
+                                  ),
+                                ),
+                                body: CameraList(dataModel: dataModel));
                           }));
                         },
                         style: ElevatedButton.styleFrom(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mars_rover_nasa_api_project/screens/home.dart';
 import 'screens/loading_screen.dart';
 
 void main() {
