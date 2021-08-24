@@ -21,7 +21,6 @@ class GalleryScreen extends StatelessWidget {
           photosIndex.add(i);
         }
       }
-      //print('My photos $photosIndex');
       return photosIndex;
     }
 
@@ -46,7 +45,6 @@ class GalleryScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       ClipRRect(
-                        //borderRadius: BorderRadius.circular(20.0),
                         child: CachedNetworkImage(
                           imageUrl: dataModel.photos![photoIn[index]!]!.imgSrc
                               .toString(),

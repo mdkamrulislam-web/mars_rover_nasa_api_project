@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../model/nasa_mars_rover_api_model.dart';
 import 'package:mars_rover_nasa_api_project/screens/gallery_screen.dart';
+import 'package:mars_rover_nasa_api_project/utilities/constants.dart';
 
 class CameraList extends StatelessWidget {
   const CameraList({Key? key, required this.dataModel}) : super(key: key);
@@ -14,18 +15,14 @@ class CameraList extends StatelessWidget {
       List<String?> list = [];
       for (int i = 0; i < index; i++) {
         String? x = dataModel.photos![i]!.camera!.fullName;
-        //print(x);
         list.add(x);
-        //print(i);
       }
-      //print(list);
       var a = list.toSet().toList();
-      //print(a);
       return a;
     }
 
     var camList = newList();
-    String cameNam;
+    String camNam;
 
     return ListView.builder(
         itemCount: camList.length,
@@ -45,20 +42,16 @@ class CameraList extends StatelessWidget {
                 ),
                 elevation: MaterialStateProperty.all(5),
               ),
-              // TextButton.styleFrom(
-              //     primary: Colors.white,
-              //     backgroundColor: Colors.blue,
-              //     shadowColor: Colors.blueAccent),
               onPressed: () async {
-                cameNam = camList[index]!;
-                //print(cameNam);
+                camNam = camList[index]!;
+                //print(camNam);
                 await Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) {
                       return GalleryScreen(
                         dataModel: dataModel,
-                        cameName: cameNam,
+                        cameName: camNam,
                       );
                     },
                   ),
@@ -68,10 +61,7 @@ class CameraList extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
                 child: Text(
                   camList[index]!,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: kCameraNameTextStyle,
                   textAlign: TextAlign.center,
                 ),
               ),

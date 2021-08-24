@@ -48,163 +48,161 @@ class AppHomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Expanded(
-              child: Container(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0, right: 20),
-                      child: Container(
-                        decoration: kHomeContainerDecoration,
-                        child: Column(
-                          children: [
-                            Center(
-                              child: Text(
-                                'Status'.toUpperCase(),
-                                style: kRoverDetailsTextStyle,
-                              ),
-                            ),
-                            Center(
-                              child: Padding(
-                                padding: const EdgeInsets.only(bottom: 16.0),
-                                child: Text(
-                                  dataModel.photos![0]!.rover!.status
-                                      .toString()
-                                      .toUpperCase(),
-                                  style: kRoverStatusTextStyle,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0, right: 20),
+                    child: Container(
+                      decoration: kHomeContainerDecoration,
+                      child: Column(
                         children: [
-                          Expanded(
-                            child: Container(
-                              decoration: kHomeContainerDecoration,
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      'Launched',
-                                      style: kRoverLaunchLandTextStyle,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: FaIcon(
-                                      FontAwesomeIcons.rocket,
-                                      size: 50,
-                                      color: Colors.orange,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      dataModel.photos![0]!.rover!.launchDate
-                                          .toString(),
-                                      style: kRoverLaunchLandDateTextStyle,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                          Center(
+                            child: Text(
+                              'Status'.toUpperCase(),
+                              style: kRoverDetailsTextStyle,
                             ),
                           ),
-                          SizedBox(width: 20.0),
-                          Expanded(
-                            child: Container(
-                              decoration: kHomeContainerDecoration,
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      'Landed',
-                                      style: kRoverLaunchLandTextStyle,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Transform.rotate(
-                                      angle: 90 * pi / 180,
-                                      child: FaIcon(
-                                        FontAwesomeIcons.rocket,
-                                        size: 50,
-                                        color: Colors.orange,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.all(16.0),
-                                    child: Text(
-                                      dataModel.photos![0]!.rover!.landingDate
-                                          .toString(),
-                                      style: kRoverLaunchLandDateTextStyle,
-                                    ),
-                                  ),
-                                ],
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 16.0),
+                              child: Text(
+                                dataModel.photos![0]!.rover!.status
+                                    .toString()
+                                    .toUpperCase(),
+                                style: kRoverStatusTextStyle,
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: ElevatedButton(
-                        onPressed: () async {
-                          await Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return Scaffold(
-                                appBar: AppBar(
-                                  centerTitle: true,
-                                  title: Text(
-                                    'Mars Rover Cameras',
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: kHomeContainerDecoration,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    'Launched',
+                                    style: kRoverLaunchLandTextStyle,
                                   ),
                                 ),
-                                body: CameraList(dataModel: dataModel));
-                          }));
-                        },
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20))),
-                        child: Ink(
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                Colors.blue.shade900,
-                                Colors.blue.shade500
-                              ]),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Container(
-                            width: 200,
-                            height: 75,
-                            alignment: Alignment.center,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  'Gallery',
-                                  style: kHomeButtonTextStyle,
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.rocket,
+                                    size: 50,
+                                    color: Colors.orange,
+                                  ),
                                 ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  size: 30,
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    dataModel.photos![0]!.rover!.launchDate
+                                        .toString(),
+                                    style: kRoverLaunchLandDateTextStyle,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                         ),
+                        SizedBox(width: 20.0),
+                        Expanded(
+                          child: Container(
+                            decoration: kHomeContainerDecoration,
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    'Landed',
+                                    style: kRoverLaunchLandTextStyle,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Transform.rotate(
+                                    angle: 90 * pi / 180,
+                                    child: FaIcon(
+                                      FontAwesomeIcons.rocket,
+                                      size: 50,
+                                      color: Colors.orange,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(16.0),
+                                  child: Text(
+                                    dataModel.photos![0]!.rover!.landingDate
+                                        .toString(),
+                                    style: kRoverLaunchLandDateTextStyle,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        await Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Scaffold(
+                              appBar: AppBar(
+                                centerTitle: true,
+                                title: Text(
+                                  'Mars Rover Cameras',
+                                ),
+                              ),
+                              body: CameraList(dataModel: dataModel));
+                        }));
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.zero,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: Ink(
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              Colors.blue.shade900,
+                              Colors.blue.shade500
+                            ]),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Container(
+                          width: 200,
+                          height: 75,
+                          alignment: Alignment.center,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                'Gallery',
+                                style: kHomeButtonTextStyle,
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 30,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
-                    // ),
-                  ],
-                ),
+                  ),
+                  // ),
+                ],
               ),
             ),
           ),

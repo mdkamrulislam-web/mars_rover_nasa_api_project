@@ -83,3 +83,8 @@ const kHomeContainerDecoration = BoxDecoration(
     Radius.circular(10.0),
   ),
 );
+
+const kCameraNameTextStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w400,
+);
