@@ -1,5 +1,5 @@
-# mars_rover_nasa_api_project
-##A Flutter project using NASA Mars Rover API.
+# NASA Mars Rover API Integration Project (25th August 2021)
+## A Flutter project using NASA Mars Rover API.
 It was a good project to learn about API integration in Flutter.
 
 ## Project Demo Video
