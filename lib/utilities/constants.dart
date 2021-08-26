@@ -87,4 +87,5 @@ const kHomeContainerDecoration = BoxDecoration(
 const kCameraNameTextStyle = TextStyle(
   fontSize: 20,
   fontWeight: FontWeight.w400,
+  height: 1.25,
 );

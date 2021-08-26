@@ -37,11 +37,21 @@ class AppHomeScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                left: 10.0, right: 10.0, bottom: 30.0, top: 30.0),
+                left: 10.0, right: 10.0, bottom: 8, top: 30.0),
             child: Center(
               child: Text(
                 dataModel.photos![0]!.rover!.name.toString(),
                 style: kRoverNameTextStyle,
+              ),
+            ),
+          ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 10.0, right: 10.0, bottom: 30.0),
+            child: Center(
+              child: Text(
+                'Rover ID: ' + dataModel.photos![0]!.rover!.id.toString(),
+                style: kRoverLaunchLandTextStyle,
               ),
             ),
           ),
@@ -175,10 +185,12 @@ class AppHomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20))),
                       child: Ink(
                         decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
-                              Colors.blue.shade900,
-                              Colors.blue.shade500
-                            ]),
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.blue.shade900,
+                                Colors.blue.shade500
+                              ],
+                            ),
                             borderRadius: BorderRadius.circular(20)),
                         child: Container(
                           width: 200,

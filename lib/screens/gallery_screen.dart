@@ -29,7 +29,7 @@ class GalleryScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          dataModel.photos![photoIn[0]!]!.camera!.fullName.toString(),
+          dataModel.photos![photoIn[0]!]!.camera!.name.toString(),
           style: TextStyle(fontSize: 16),
         ),
       ),
@@ -44,6 +44,14 @@ class GalleryScreen extends StatelessWidget {
                   decoration: kPhotoCardsDecoration,
                   child: Column(
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20, bottom: 20),
+                        child: Text(
+                          'Photo ID: ' +
+                              dataModel.photos![photoIn[index]!]!.id.toString(),
+                          style: kEarthDateTextStyle,
+                        ),
+                      ),
                       ClipRRect(
                         child: CachedNetworkImage(
                           imageUrl: dataModel.photos![photoIn[index]!]!.imgSrc
