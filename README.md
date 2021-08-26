@@ -5,7 +5,7 @@ It was a good project to learn about API integration in Flutter.
 ## Project Demo Video
 https://user-images.githubusercontent.com/68586718/130691257-acc5d014-3c13-4987-aa15-3ef6ad1dcec5.mp4
 
-## Project Update: Some new Informations were added.
+## Project Update: Some new Informations were added. (27th August 2021)
 Given in the Screens below - 
 1. Rover ID
 2. Camera ID
